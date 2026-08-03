@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSCHEMA-API-GEN-APPJS - Setup & Execution Guide</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --container-bg: #ffffff;
+            --text-color: #212529;
+            --primary-color: #28a745;
+            --primary-hover: #1e7e34;
+            --code-bg: #1e1e1e;
+            --code-text: #d4d4d4;
+            --border-color: #dee2e6;
+            --nav-bg: #fff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .nav-btn.inactive {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+
+        .nav-btn.inactive:hover {
+            background-color: #dee2e6;
+            color: #212529;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            color: #111;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0 20px 0;
+        }
+
+        .step-list {
+            padding-left: 20px;
+        }
+
+        .step-list li {
+            margin-bottom: 25px;
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #d63384;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+
+        .highlight-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 0 6px 6px 0;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-btn active">⚙️ How It Works</a>
+            <a href="why-use-this-repo.html" class="nav-btn inactive">💡 Why Use This Repo</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Repository: KSCHEMA-API-GEN-APPJS</h1>
+
+        <p>This repository automates Express.js route generation. By running the test runner in <code>V2</code>, it
+            dynamically creates folders and populates them with boilerplate <code>router.js</code> files for modular API
+            endpoints.</p>
+
+        <h2>How the Script Works</h2>
+        <p>When you execute <code>test/v2/testrouter.js</code>, the generator logic creates a new folder (e.g.,
+            <code>folder3</code>) and automatically scaffolds a <code>router.js</code> file inside it. This file
+            contains a ready-to-use Express Router export.</p>
+
+        <h2>Step-by-Step Execution Guide</h2>
+
+        <ol class="step-list">
+            <li>
+                <span class="step-title">Step 1: Install Dependencies</span>
+                <p>From the project root, install required packages:</p>
+                <pre><code>npm install</code></pre>
+            </li>
+
+            <li>
+                <span class="step-title">Step 2: Review the Test Script</span>
+                <p>Open <code>test/v2/test.js</code>. It imports <code>runSync</code> from <code>index.js</code> and
+                    configures folder generation:</p>
+                <pre><code>import { runSync } from "../..//index.js";
+
+const startFunc = () => {
+    const fromNpm = runSync({
+        folderName: "folder3",
+        toPath: process.cwd(),
+        showLog: false,
+        isAnnounce: true
+    });
+    console.log("Created router: ", fromNpm);
+    return fromNpm;
+};
+
+startFunc();</code></pre>
+            </li>
+
+            <li>
+                <span class="step-title">Step 3: Run the Script</span>
+                <p>Execute the test runner:</p>
+                <pre><code>node test/v2/test.js</code></pre>
+            </li>
+
+            <li>
+                <span class="step-title">Step 4: Verify Generated Router</span>
+                <p>After execution, check your file tree. A new folder is created with a <code>router.js</code> file:
+                </p>
+                <pre><code>kschema-api-gen-appjs/
+├── folder3/
+│   └── router.js</code></pre>
+            </li>
+        </ol>
+
+        <h2>Generated Router Example</h2>
+        <pre><code>import express from 'express';
+
+const router = express.Router();
+
+export { router };
+</code></pre>
+
+        <div class="highlight-box">
+            <p><strong>Configuration Note:</strong> You can adjust <code>folderName</code>, <code>toPath</code>, and
+                other parameters in <code>test/v2/test.js</code> to generate routers in different directories or with
+                custom logging behavior.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
