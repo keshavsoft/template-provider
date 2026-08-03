@@ -5,7 +5,7 @@ import updateAppJs from "./Helpers/steps/updateJs.js";
 
 import resolveFolderName from "./Helpers/steps/resolveFolderName.js";
 
-export default ({ folderName = "", toPath }) => {
+export default ({ folderName = "", toPath, inFileType }) => {
 
     const localToPath = toPath;
 
@@ -30,7 +30,8 @@ export default ({ folderName = "", toPath }) => {
     if (createFolderResponse.KTF) {
         const fromUpdate = updateAppJs({
             appJsPath: `${localToPath}/app.js`,
-            endpoint: resolvedFolderName
+            endpoint: resolvedFolderName,
+            inFileType
         });
     };
 

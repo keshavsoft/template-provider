@@ -4,7 +4,7 @@ const run = ({ inFileType, folderName, toPath }) => {
     switch (inFileType) {
         case "fromAppJs":
 
-            startEndPoint({ folderName, toPath });
+            startEndPoint({ folderName, toPath, inFileType });
 
             break;
 
