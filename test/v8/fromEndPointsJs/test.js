@@ -9,7 +9,7 @@ const fromNpm = runSync({
     inFileType: "fromEndPointsJs",
     folderName: "showAll",
     toPath: __dirname,
-    inSubFolderName: "showAll"
+    inTableName: "tab1"
 });
 
 console.log("aaaaaa : ", fromNpm);
