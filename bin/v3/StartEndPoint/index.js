@@ -1,7 +1,7 @@
 import { locateSource } from "./Helpers/steps/locateSource.js";
 import { locateDestination } from "./Helpers/steps/locateDestination.js";
-import { createFolder } from "../core/createFolder.js";
-import updateAppJs from "./Helpers/steps/UpdateAppJs/index.js";
+import { createFolder } from "./createFolder.js";
+import updateAppJs from "./Helpers/steps/updateJs.js";
 
 import resolveFolderName from "./Helpers/steps/resolveFolderName.js";
 

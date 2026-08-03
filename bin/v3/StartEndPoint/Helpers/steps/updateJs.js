@@ -10,4 +10,4 @@ const updateAppJs = ({ appJsPath, endpoint, showLog }) => {
     return false;
 };
 
-export default updateAppJs;
+export default updateAppJs; 
