@@ -1,8 +1,9 @@
 import getSourcePath from "./getSourcePath.js";
 import getDestinationPath from "./getDestinationPath.js";
 import copyTemplate from "./copyTemplate.js";
-import updateAppConfiguration from "./updateAppConfiguration.js";
-import updateTableName from "./updateTableName.js";
+// import updateAppConfiguration from "./updateAppConfiguration.js";
+// import updateTableName from "./updateTableName.js";
+import fixAnyJs from "express-fix-any-js";
 
 export default ({ raka, poka, toPath, inFileType, alterArray }) => {
     const source = getSourcePath({ inFileType });
@@ -11,12 +12,18 @@ export default ({ raka, poka, toPath, inFileType, alterArray }) => {
     const isTemplateCopied = copyTemplate(source, destination);
 
     if (isTemplateCopied) {
-        updateAppConfiguration({ toPath, inFileType, raka, poka });
+        const fromRakaPoka = fixAnyJs({
+            inTargetPath: toPath, alterArray,
+            inFileType, inValue: raka, OutValue: poka
+        });
 
-        if (alterArray) {
-            updateTableName({ toPath, alterArray, inFileType });
-        };
+        // if (alterArray) {
+        //     const fromAlterArray = fixAnyJs({
+        //         inTargetPath: toPath,
+        //         alterArray, inFileType
+        //     });
+        // };
     };
 
-    return true;
+    return { fromRakaPoka, fromAlterArray };
 };

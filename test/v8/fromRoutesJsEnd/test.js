@@ -3,12 +3,15 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-import { runSync } from "../../../index.js";
+import runSync from "../../../index.js";
 
 const fromNpm = runSync({
+    raka: "doctors", poka: "doctors",
     inFileType: "fromRoutesJsEnd",
-    folderName: "v1",
-    toPath: __dirname
+    toPath: __dirname,
+    alterArray: [
+        { "key": "<TABLE_NAME>", "value": "doctors" }
+    ]
 });
 
 console.log("aaaaaa : ", fromNpm);
