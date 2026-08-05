@@ -1,238 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSCHEMA-API-GEN-APPJS - Setup & Execution Guide</title>
-    <style>
-        :root {
-            --bg-color: #f8f9fa;
-            --container-bg: #ffffff;
-            --text-color: #212529;
-            --primary-color: #28a745;
-            --primary-hover: #1e7e34;
-            --code-bg: #1e1e1e;
-            --code-text: #d4d4d4;
-            --border-color: #dee2e6;
-            --nav-bg: #fff;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            background-color: var(--nav-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-        }
-
-        .nav-container {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            gap: 12px;
-        }
-
-        .nav-btn {
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-
-        .nav-btn.active {
-            background-color: var(--primary-color);
-            color: #ffffff;
-        }
-
-        .nav-btn.inactive {
-            background-color: #e9ecef;
-            color: #495057;
-        }
-
-        .nav-btn.inactive:hover {
-            background-color: #dee2e6;
-            color: #212529;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: var(--container-bg);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-color);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-top: 0;
-            color: #111;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            color: #333;
-        }
-
-        p {
-            margin: 10px 0 20px 0;
-        }
-
-        .step-list {
-            padding-left: 20px;
-        }
-
-        .step-list li {
-            margin-bottom: 25px;
-        }
-
-        .step-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        pre {
-            background-color: var(--code-bg);
-            color: var(--code-text);
-            padding: 15px;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 0.9rem;
-            margin: 10px 0;
-        }
-
-        code {
-            background-color: #e9ecef;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.95rem;
-            color: #d63384;
-        }
-
-        pre code {
-            background-color: transparent;
-            padding: 0;
-            color: inherit;
-            font-size: inherit;
-        }
-
-        .highlight-box {
-            background-color: #e8f4fd;
-            border-left: 4px solid var(--primary-color);
-            padding: 15px;
-            border-radius: 0 6px 6px 0;
-            margin: 20px 0;
-        }
-
-        .highlight-box p {
-            margin: 0;
-        }
-    </style>
+    <title>template-provider</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-
 <body>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-btn active">⚙️ How It Works</a>
-            <a href="why-use-this-repo.html" class="nav-btn inactive">💡 Why Use This Repo</a>
-        </div>
-    </nav>
+    <h1>template-provider 🚀</h1>
 
-    <div class="container">
-        <h1>Repository: KSCHEMA-API-GEN-APPJS</h1>
+    <blockquote>
+        <p><strong>Automatically generate, update, and organize Express.js routing files with safe, idempotent code generation.</strong></p>
+    </blockquote>
 
-        <p>This repository automates Express.js route generation. By running the test runner in <code>V2</code>, it
-            dynamically creates folders and populates them with boilerplate <code>router.js</code> files for modular API
-            endpoints.</p>
-
-        <h2>How the Script Works</h2>
-        <p>When you execute <code>test/v2/testrouter.js</code>, the generator logic creates a new folder (e.g.,
-            <code>folder3</code>) and automatically scaffolds a <code>router.js</code> file inside it. This file
-            contains a ready-to-use Express Router export.</p>
-
-        <h2>Step-by-Step Execution Guide</h2>
-
-        <ol class="step-list">
-            <li>
-                <span class="step-title">Step 1: Install Dependencies</span>
-                <p>From the project root, install required packages:</p>
-                <pre><code>npm install</code></pre>
-            </li>
-
-            <li>
-                <span class="step-title">Step 2: Review the Test Script</span>
-                <p>Open <code>test/v2/test.js</code>. It imports <code>runSync</code> from <code>index.js</code> and
-                    configures folder generation:</p>
-                <pre><code>import { runSync } from "../..//index.js";
-
-const startFunc = () => {
-    const fromNpm = runSync({
-        folderName: "folder3",
-        toPath: process.cwd(),
-        showLog: false,
-        isAnnounce: true
-    });
-    console.log("Created router: ", fromNpm);
-    return fromNpm;
-};
-
-startFunc();</code></pre>
-            </li>
-
-            <li>
-                <span class="step-title">Step 3: Run the Script</span>
-                <p>Execute the test runner:</p>
-                <pre><code>node test/v2/test.js</code></pre>
-            </li>
-
-            <li>
-                <span class="step-title">Step 4: Verify Generated Router</span>
-                <p>After execution, check your file tree. A new folder is created with a <code>router.js</code> file:
-                </p>
-                <pre><code>kschema-api-gen-appjs/
-├── folder3/
-│   └── router.js</code></pre>
-            </li>
-        </ol>
-
-        <h2>Generated Router Example</h2>
-        <pre><code>import express from 'express';
-
-const router = express.Router();
-
-export { router };
-</code></pre>
-
-        <div class="highlight-box">
-            <p><strong>Configuration Note:</strong> You can adjust <code>folderName</code>, <code>toPath</code>, and
-                other parameters in <code>test/v2/test.js</code> to generate routers in different directories or with
-                custom logging behavior.</p>
-        </div>
+    <div class="badge-container">
+        <a href="https://www.npmjs.com/package/template-provider"><img src="https://img.shields.io/npm/v/template-provider.svg?style=flat-square" alt="npm version"></a>
+        <a href="LICENSE"><img src="https://img.shields.io/npm/l/template-provider.svg?style=flat-square" alt="License"></a>
     </div>
 
-</body>
+    <hr>
 
+    <h2>📖 Overview</h2>
+    <p><code>template-provider</code> is a lightweight developer utility that automatically generates and updates Express.js routing files.</p>
+    <p>It safely inserts router imports, endpoint methods, version routes, and table routes while preventing duplicate code generation.</p>
+    <p>The project serves as one of the core building blocks of the <strong>KeshavSoft API Generation Suite</strong>, enabling CLI tools and VS Code extensions to scaffold Express APIs with minimal effort.</p>
+
+    <hr>
+
+    <h2>✨ Features</h2>
+    <ul>
+        <li>✅ Automatic Express route generation</li>
+        <li>✅ Safe duplicate prevention (Idempotent)</li>
+        <li>✅ Generates router imports automatically</li>
+        <li>✅ Generates GET, POST, PUT and DELETE endpoints</li>
+        <li>✅ Creates version routing (<code>/v1</code>, <code>/v2</code>, ...)</li>
+        <li>✅ Creates table routing (<code>/customers</code>, <code>/doctors</code>, ...)</li>
+        <li>✅ Maintains clean route formatting</li>
+        <li>✅ Supports multiple generator versions</li>
+    </ul>
+
+    <hr>
+
+    <h2>📂 Project Structure</h2>
+    <pre><code>test/
+└── v10
+    ├── fromAppJs
+    ├── fromEndPointsJs
+    ├── fromRoutesJs
+    └── fromRoutesJsEnd</code></pre>
+    <p>Each folder demonstrates a different stage of Express route generation.</p>
+
+    <hr>
+
+    <h2>🚀 Generation Flow</h2>
+    <pre><code>Run Generator
+      │
+      ▼
+Generate App.js
+      │
+      ▼
+Generate Version Routes
+      │
+      ▼
+Generate Table Routes
+      │
+      ▼
+Generate Endpoint Methods
+      │
+      ▼
+Ready-to-Use Express APIs</code></pre>
+
+    <hr>
+
+    <h2>📄 Module Overview</h2>
+
+    <h3>1. App.js Generator</h3>
+    <p><strong>Folder</strong></p>
+    <pre><code>test/v10/fromAppJs</code></pre>
+    <h4>Purpose</h4>
+    <p>Automatically updates <strong>app.js</strong>.</p>
+    <h4>Generates</h4>
+    <ul>
+        <li>Router imports</li>
+        <li>app.use() registrations</li>
+        <li>API router configuration</li>
+    </ul>
+    <p>Example</p>
+    <pre><code class="language-javascript">import { router as routerFromApi } from "./api/routes.js";
+
+app.use("/api", routerFromApi);</code></pre>
+
+    <h3>2. Endpoint Generator</h3>
+    <p><strong>Folder</strong></p>
+    <pre><code>test/v10/fromEndPointsJs</code></pre>
+    <h4>Purpose</h4>
+    <p>Creates endpoint methods for Express routers.</p>
+    <h4>Generates</h4>
+    <ul>
+        <li>GET</li>
+        <li>POST</li>
+        <li>PUT</li>
+        <li>DELETE</li>
+    </ul>
+    <p>Example</p>
+    <pre><code class="language-javascript">router.get("/showAll", handler);
+
+router.post("/insert", handler);</code></pre>
+
+    <h3>3. Version Route Generator</h3>
+    <p><strong>Folder</strong></p>
+    <pre><code>test/v10/fromRoutesJs</code></pre>
+    <h4>Purpose</h4>
+    <p>Creates version-based routing.</p>
+    <p>Example</p>
+    <pre><code class="language-javascript">router.use("/v1", routerFromV1);</code></pre>
+    <p>Generated</p>
+    <pre><code>/api
+   └── /v1</code></pre>
+
+    <h3>4. Table Route Generator</h3>
+    <p><strong>Folder</strong></p>
+    <pre><code>test/v10/fromRoutesJsEnd</code></pre>
+    <h4>Purpose</h4>
+    <p>Creates routes based on schema table names.</p>
+    <p>Example</p>
+    <pre><code>Doctors</code></pre>
+    <p>Generated</p>
+    <pre><code class="language-javascript">router.use("/doctors", routerFromDoctors);</code></pre>
+    <p>Result</p>
+    <pre><code>/api
+   └── /v1
+          ├── /doctors
+          ├── /patients
+          └── ...</code></pre>
+
+    <hr>
+
+    <h2>📦 Installation</h2>
+    <pre><code class="language-bash">npm install template-provider</code></pre>
+
+    <hr>
+
+    <h2>🌐 Documentation</h2>
+    <p>Complete documentation is available here:</p>
+    <p><strong>Documentation Portal</strong></p>
+    <p><a href="https://keshavsoft.github.io/template-provider/">https://keshavsoft.github.io/template-provider/</a></p>
+    <p>The documentation includes:</p>
+    <ul>
+        <li>📄 App.js Generation</li>
+        <li>📄 Endpoint Generation</li>
+        <li>📄 Version Route Generation</li>
+        <li>📄 Table Route Generation</li>
+        <li>📄 Developer Guides</li>
+        <li>📄 Architecture</li>
+        <li>📄 Examples</li>
+    </ul>
+
+    <hr>
+
+    <h2>❤️ Maintainer</h2>
+    <p>Developed and maintained by <strong>KeshavSoft</strong></p>
+    <p>GitHub: <a href="https://github.com/keshavsoft">https://github.com/keshavsoft</a></p>
+
+    <hr>
+
+    <h2>📄 License</h2>
+    <p>MIT License</p>
+
+</body>
 </html>
