@@ -17,29 +17,9 @@ The project serves as one of the core building blocks of the **KeshavSoft API Ge
 
 ---
 
-# ✨ Features
-
-- ✅ Automatic Express route generation
-- ✅ Safe duplicate prevention (Idempotent)
-- ✅ Generates router imports automatically
-- ✅ Generates GET, POST, PUT and DELETE endpoints
-- ✅ Creates version routing (`/v1`, `/v2`, ...)
-- ✅ Creates table routing (`/customers`, `/doctors`, ...)
-- ✅ Maintains clean route formatting
-- ✅ Supports multiple generator versions
-
----
 
 # 📂 Project Structure
 
-```
-test/
-└── v10
-    ├── fromAppJs
-    ├── fromEndPointsJs
-    ├── fromRoutesJs
-    └── fromRoutesJsEnd
-```
 
 Each folder demonstrates a different stage of Express route generation.
 
@@ -47,36 +27,11 @@ Each folder demonstrates a different stage of Express route generation.
 
 # 🚀 Generation Flow
 
-```
-Run Generator
-      │
-      ▼
-Generate App.js
-      │
-      ▼
-Generate Version Routes
-      │
-      ▼
-Generate Table Routes
-      │
-      ▼
-Generate Endpoint Methods
-      │
-      ▼
-Ready-to-Use Express APIs
-```
-
 ---
-
-# 📄 Module Overview
 
 ## 1. App.js Generator
 
-**Folder**
-
-```
-test/v10/fromAppJs
-```
+The journey of every API begins with app.js. Rather than manually wiring routers every time, the App.js Generator automatically connects them for you. It safely inserts imports and route registrations without creating duplicates, ensuring your application is always organized and ready to grow.
 
 ### Purpose
 
@@ -88,105 +43,36 @@ Automatically updates **app.js**.
 - app.use() registrations
 - API router configuration
 
-Example
 
-```javascript
-import { router as routerFromApi } from "./api/routes.js";
 
-app.use("/api", routerFromApi);
-```
+## 2. Version Route Generator
 
----
+Great APIs grow over time, and so do their versions. The Version Route Generator automatically organizes routes into version folders like /v1 and /v2, making your API clean, scalable, and easy to maintain.
 
-## 2. Endpoint Generator
-
-**Folder**
-
-```
-test/v10/fromEndPointsJs
-```
-
-### Purpose
-
-Creates endpoint methods for Express routers.
-
-### Generates
-
-- GET
-- POST
-- PUT
-- DELETE
-
-Example
-
-```javascript
-router.get("/showAll", handler);
-
-router.post("/insert", handler);
-```
-
----
-
-## 3. Version Route Generator
-
-**Folder**
-
-```
-test/v10/fromRoutesJs
-```
 
 ### Purpose
 
 Creates version-based routing.
 
-Example
-
-```javascript
-router.use("/v1", routerFromV1);
-```
-
-Generated
-
-```
-/api
-   └── /v1
-```
-
 ---
 
-## 4. Table Route Generator
+## 3. Table Route Generator
+Every table deserves its own route. The Table Route Generator automatically creates routes from your schema, connecting tables like Customers, Doctors, and Products into a clean, scalable Express API structure with minimal effort.
 
-**Folder**
-
-```
-test/v10/fromRoutesJsEnd
-```
 
 ### Purpose
 
 Creates routes based on schema table names.
 
-Example
+---
+## 4. Endpoint Generator
 
-```
-Doctors
-```
+An API is only useful when it can perform actions. The Endpoint Generator automatically creates Express endpoint methods for GET, POST, PUT, and DELETE, giving you a clean starting point for every new route while avoiding repetitive code.
 
-Generated
 
-```javascript
-router.use("/doctors", routerFromDoctors);
-```
+### Purpose
 
-Result
-
-```
-/api
-   └── /v1
-          ├── /doctors
-          ├── /patients
-          └── ...
-```
+Creates endpoint methods for Express routers.
 
 ---
 
@@ -205,16 +91,6 @@ Complete documentation is available here:
 **Documentation Portal**
 
 https://keshavsoft.github.io/template-provider/
-
-The documentation includes:
-
-- 📄 App.js Generation
-- 📄 Endpoint Generation
-- 📄 Version Route Generation
-- 📄 Table Route Generation
-- 📄 Developer Guides
-- 📄 Architecture
-- 📄 Examples
 
 ---
 
