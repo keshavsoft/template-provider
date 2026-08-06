@@ -2,48 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Version Route Generator | template-provider</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Version Route Generator | template-provider</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="./css/style.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
-    <!-- Navigation Bar -->
-   <nav>
+  <!-- Navigation Bar -->
+  <nav>
     <div class="logo">
-      template-provider
-
+      <a href="./index.html"> template-provider</a>
     </div>
-    <ul>
-      <li class="dropdown">
-        <a href="./index.html" class="dropbtn">V ▾</a>
-        <div class="dropdown-content">
-          <a href="./v1/index.html">v1</a>
-          <a href="./v2/index.html">v2</a>
-          <a href="./v3/index.html">v3</a>
-        </div>
-      </li>
-    </ul>
-    <ul>
-      <li class="dropdown">
-        <a href="./index.html" class="dropbtn">Documentation ▾</a>
-        <div class="dropdown-content">
-          <a href="./app-generator.html">App.js Route Generation</a>
-          <a href="./version-generator.html">Version Route Generation</a>
-          <a href="./table-generator.html">Table Route Generation</a>
-          <a href="./endpoint-generator.html">End Points Generation</a>
-        </div>
-      </li>
-    </ul>
 
     <a href="https://github.com/keshavsoft/template-provider" target="_blank" rel="noopener noreferrer"
       class="btn-github">
@@ -56,58 +36,62 @@
     </a>
   </nav>
 
-    <main>
-        <!-- Version Route Generator Overview Card -->
-        <section class="section-block">
-            <div class="section-header">
-                <h2>Version Route Generator</h2>
-                <p style="margin-top: 8px;">Great APIs grow over time, and so do their versions. The Version Route Generator automatically organizes routes into version folders like <code>/v1</code> and <code>/v2</code>, making your API clean, scalable, and easy to maintain.</p>
-            </div>
+  <main>
+    <!-- Version Route Generator Overview Card -->
+    <section class="section-block">
+      <div class="section-header">
+        <h2>Version Route Generator</h2>
+        <p style="margin-top: 8px;">Great APIs grow over time, and so do their versions. The Version Route Generator
+          automatically organizes routes into version folders like <code>/v1</code> and <code>/v2</code>, making your
+          API clean, scalable, and easy to maintain.</p>
+      </div>
 
-            <div class="sim-panel" style="gap: 20px;">
-                <div class="form-group">
-                    <label>Folder Location</label>
-                    <pre><code>Api/v1/</code></pre>
-                </div>
+      <div class="sim-panel" style="gap: 20px;">
+        <div class="form-group">
+          <label>Folder Location</label>
+          <pre><code>Api/v1/</code></pre>
+        </div>
 
-                <div class="form-group">
-                    <h3>Purpose</h3>
-                    <p>Creates version-based routing automatically while keeping imports clean and preventing duplicate route registrations.</p>
-                </div>
+        <div class="form-group">
+          <h3>Purpose</h3>
+          <p>Creates version-based routing automatically while keeping imports clean and preventing duplicate route
+            registrations.</p>
+        </div>
 
-                <div class="form-group">
-                    <label>Code Example</label>
-                    <pre><code>router.use("/v1", routerFromV1);</code></pre>
-                </div>
+        <div class="form-group">
+          <label>Code Example</label>
+          <pre><code>router.use("/v1", routerFromV1);</code></pre>
+        </div>
 
-                <div class="form-group">
-                    <label>Generated Directory Structure</label>
-                    <pre><code>/api
+        <div class="form-group">
+          <label>Generated Directory Structure</label>
+          <pre><code>/api
    └── /v1</code></pre>
-                </div>
-            </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <!-- Documentation Portal Section -->
-        <section class="docs-section">
-            <h2>🌐 Documentation Portal</h2>
-            <p style="margin-top: 4px;">Access complete guides, API specs, and generators</p>
-            <div class="docs-list">
-                <a href="./index.html" class="doc-link">
-                    📘 Back to Overview
-                </a>
-                <a href="https://github.com/keshavsoft/template-provider" target="_blank" rel="noopener noreferrer" class="doc-link">
-                    ⭐ View on GitHub
-                </a>
-            </div>
-        </section>
-    </main>
+    <!-- Documentation Portal Section -->
+    <section class="docs-section">
+      <h2>🌐 Documentation Portal</h2>
+      <p style="margin-top: 4px;">Access complete guides, API specs, and generators</p>
+      <div class="docs-list">
+        <a href="./index.html" class="doc-link">
+          📘 Back to Overview
+        </a>
+        <a href="https://github.com/keshavsoft/template-provider" target="_blank" rel="noopener noreferrer"
+          class="doc-link">
+          ⭐ View on GitHub
+        </a>
+      </div>
+    </section>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>Developed and maintained with ❤️ by <strong>KeshavSoft</strong></p>
-        <p style="margin-top: 4px;">Released under the <strong>MIT License</strong></p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>Developed and maintained with ❤️ by <strong>KeshavSoft</strong></p>
+    <p style="margin-top: 4px;">Released under the <strong>MIT License</strong></p>
+  </footer>
 
 </body>
 
