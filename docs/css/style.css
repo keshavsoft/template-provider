@@ -1,231 +1,375 @@
- body {
-     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-     line-height: 1.6;
-     color: #24292e;
-     max-width: 880px;
-     margin: 0 auto;
-     padding: 2rem 1rem;
- }
+:root {
+    --bg-dark: #070a13;
+    --bg-card: #0d1222;
+    --border-color: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #38bdf8;
+    --primary-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    --accent-green: #34d399;
+    --accent-violet: #a78bfa;
+    --font-outfit: 'Outfit', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
 
- h1,
- h2,
- h3 {
-     border-bottom: 1px solid #eaecef;
-     padding-bottom: 0.3em;
-     margin-top: 1.5em;
- }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
- h1 {
-     font-size: 2em;
- }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-inter);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.06) 0%, transparent 50%);
+}
 
- h2 {
-     font-size: 1.5em;
- }
+/* Typography & Base Resets */
+h1, h2, h3 {
+    font-family: var(--font-outfit);
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+}
 
- h3 {
-     font-size: 1.25em;
- }
+h1 { font-size: 2.5rem; font-weight: 800; }
+h2 { font-size: 1.8rem; font-weight: 700; }
+h3 { font-size: 1.25rem; font-weight: 600; }
 
- code {
-     background-color: rgba(27, 31, 35, 0.05);
-     border-radius: 3px;
-     font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-     font-size: 85%;
-     padding: 0.2em 0.4em;
- }
+p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
 
- pre {
-     background-color: #f68181;
-     background-color: #f6f8fa;
-     border-radius: 6px;
-     padding: 16px;
-     overflow: auto;
-     font-size: 85%;
-     line-height: 1.45;
- }
+code {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    padding: 0.2em 0.4em;
+}
 
- pre code {
-     background-color: transparent;
-     padding: 0;
- }
+pre {
+    background-color: #04060b;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent-green);
+}
 
- blockquote {
-     color: #6a737d;
-     border-left: 0.25em solid #dfe2e5;
-     padding: 0 1em;
-     margin: 0;
- }
+pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+}
 
- ul {
-     padding-left: 2em;
- }
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
 
- li {
-     margin-bottom: 0.25em;
- }
+a:hover {
+    color: #818cf8;
+}
 
- a {
-     color: #050505;
-     text-decoration: none;
- }
+ul {
+    list-style: none;
+}
 
- a:hover {
-     text-decoration: underline;
- }
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 8%;
+    background: rgba(7, 10, 19, 0.8);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
 
- hr {
-     height: 0.25em;
-     padding: 0;
-     margin: 24px 0;
-     background-color: #e1e4e8;
-     border: 0;
- }
+nav .logo {
+    font-family: var(--font-outfit);
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
- .badge-container {
-     margin-bottom: 1rem;
- }
+nav ul {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
 
- .badge-container a {
-     margin-right: 8px;
- }
+nav ul a {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
 
- nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 8%;
-        background: rgba(58, 88, 179, 0.7);
-        backdrop-filter: blur(12px);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+nav ul a:hover {
+    color: var(--primary);
+}
+
+/* Dropdowns & Version Badge */
+.dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.version-badge {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-text-fill-color: initial;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-card);
+    min-width: 140px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    z-index: 100;
+    top: 100%;
+    left: 0;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: var(--text-muted);
+    padding: 8px 14px;
+    display: block;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* GitHub Button */
+nav .btn-github {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav .btn-github:hover {
+    background: var(--primary-gradient);
+    border-color: transparent;
+    color: #000;
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+}
+
+/* Layout Sections */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.section-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-header p {
+    margin-top: 6px;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.feature-item {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Simulator Grid */
+.simulator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 850px) {
+    .simulator-container {
+        grid-template-columns: 1fr;
     }
+}
 
-    nav .logo {
-        font-family: var(--font-outfit);
-        font-size: 1.5rem;
-        font-weight: 800;
-        letter-spacing: -0.5px;
-        /* background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent; */
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+.sim-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
-    nav .logo span {
-        font-size: 0.8rem;
-        background: rgba(224, 222, 222, 0.1);
-        color: var(--primary);
-        padding: 4px 8px;
-        border-radius: 6px;
-        border: 1px solid rgba(56, 189, 248, 0.2);
-    }
+.sim-panel h3 {
+    color: var(--primary);
+}
 
-    nav ul {
-        display: flex;
-        gap: 30px;
-        list-style: none;
-        align-items: center;
-    }
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
 
-    nav ul a {
-        color: var(--text-muted);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: color 0.3s ease;
-    }
+.form-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
-    nav ul a:hover {
-        color: var(--primary);
-    }
+.form-group input {
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    outline: none;
+}
 
-    nav .btn-github {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid var(--border-color);
-        color: var(--text-main);
-        padding: 8px 16px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+.code-preview {
+    background: #04060b;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    white-space: pre;
+    overflow-x: auto;
+    flex-grow: 1;
+    color: var(--accent-green);
+    line-height: 1.5;
+}
 
-    nav .btn-github:hover {
-        background: var(--primary-gradient);
-        border-color: transparent;
-        color: #000;
-        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
-    }
+/* Documentation Portal */
+.docs-section {
+    text-align: center;
+    padding: 20px 0;
+}
 
-    /* Hero */
-    header {
-        padding: 80px 8% 60px 8%;
-        text-align: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+.docs-list {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
 
-    header h1 {
-        font-family: var(--font-outfit);
-        font-size: 3.5rem;
-        font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 24px;
-        letter-spacing: -1px;
-    }
+.doc-link {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
 
-    header h1 span {
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+.doc-link:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.15);
+}
 
-    header p {
-        font-size: 1.2rem;
-        color: var(--text-muted);
-        max-width: 800px;
-        margin: 0 auto 40px auto;
-    }
+/* Footer */
+footer {
+    background: #04060c;
+    padding: 32px 8%;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+}
 
- nav li.dropdown {
-     position: relative;
-     display: inline-block;
- }
+footer p {
+    font-size: 0.85rem;
+}
 
- nav .dropdown-content {
-     display: none;
-     position: absolute;
-     background-color: #ffffff;
-     min-width: 220px;
-     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-     border-radius: 6px;
-     z-index: 100;
-     top: 100%;
-     left: 0;
-     overflow: hidden;
- }
-
- nav .dropdown-content a {
-     color: #333;
-     padding: 10px 14px;
-     text-decoration: none;
-     display: block;
-     font-size: 14px;
- }
-
- nav .dropdown-content a:hover {
-     background-color: #f1f1f1;
- }
-
- nav li.dropdown:hover .dropdown-content {
-     display: block;
- }
+footer strong {
+    color: var(--text-main);
+}
