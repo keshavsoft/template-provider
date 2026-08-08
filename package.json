@@ -1,6 +1,6 @@
 {
   "name": "template-provider",
-  "version": "1.14.8",
+  "version": "1.14.9",
   "description": "CLI to build for appjs, the endpoints",
   "keywords": [
     "cli",
@@ -10,7 +10,7 @@
     "project-generator"
   ],
   "dependencies": {
-    "express-fix-any-js": "^1.32.2"
+    "express-fix-any-js": "^1.32.3"
   },
   "type": "module",
   "exports": {
